@@ -6,8 +6,8 @@ Usage:
     python compare_intensities.py [options]
 
 Options:
-    --exp_file  Path to the experimental CSV file (default: input/Intensities_exp_5000.csv)
-    --calc_file Path to the fort.36-like calculated file (default: input/fort.36.D2n)
+    --exp_file  Path to the experimental CSV file (default: input/Intensities_exp.csv)
+    --calc_file Path to the fort.36-like calculated file (default: input/fort.36)
     --freq_tol  Absolute frequency tolerance in cm^-1 (default: 0.01)
     --int_tol   Relative intensity tolerance (default: 0.5)
 """
@@ -264,10 +264,10 @@ def print_comparison_table(results):
 
 def main():
     parser = argparse.ArgumentParser(description='Compare experimental and calculated intensities')
-    parser.add_argument('--exp_file', type=str, default='input/Intensities_exp_5000.csv',
-                        help='Path to experimental CSV file (default: input/Intensities_exp_5000.csv)')
-    parser.add_argument('--calc_file', type=str, default='input/fort.36.D2n',
-                        help='Path to calculated fort.36-like file (default: input/fort.36.D2n)')
+    parser.add_argument('--exp_file', type=str, default='input/Intensities_exp.csv',
+                        help='Path to experimental CSV file (default: input/Intensities_exp.csv)')
+    parser.add_argument('--calc_file', type=str, default='input/fort.36',
+                        help='Path to calculated fort.36-like file (default: input/fort.36)')
     parser.add_argument('--freq_tol', type=float, default=0.01,
                         help='Absolute frequency tolerance in cm^-1 (default: 0.01)')
     parser.add_argument('--int_tol', type=float, default=0.5,
