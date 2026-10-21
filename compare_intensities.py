@@ -11,7 +11,7 @@ Options:
     --freq_tol  Absolute frequency tolerance in cm^-1 (default: 0.01)
     --int_tol   Relative intensity tolerance (default: 0.5)
 """
-
+import math
 import re
 import argparse
 from collections import defaultdict
@@ -298,12 +298,14 @@ def main():
     if valid_results:
         diffs = [abs(d) for _, d in valid_results]
         avg_diff = sum(diffs) / len(diffs)
+        sd = math.sqrt(sum(d ** 2 for d in diffs) / len(diffs))
         max_diff = max(diffs)
         min_diff = min(diffs)
         
         print(f"\nSummary:")
         print(f"  Successfully matched: {len(valid_results)}/{len(results)} entries")
         print(f"  Average absolute relative difference: {avg_diff:.4f}%")
+        print(f"  Standard deviation: {sd:.4f}%")
         print(f"  Min absolute relative difference: {min_diff:.4f}%")
         print(f"  Max absolute relative difference: {max_diff:.4f}%")
 
